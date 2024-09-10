@@ -10,14 +10,14 @@ UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
 #CC=clang++
 #CFLAGS= -pg -no-pie -L /usr/lib/x86_64-linux-gnu/vtk
-CFLAGS= -I$(IDIR) -I /usr/include/vtk-9.1  -march=native -malign-double -std=c++2b -fopenmp -fopenmp-simd 
+CFLAGS= -I$(IDIR) -I /usr/include/vtk-9.1  -march=native -malign-double -std=c++2b -fopenmp -fopenmp-simd -g
 CFLAGS+= -O3 -mavx -mavx2 -mfma -ftree-vectorize -fno-omit-frame-pointer -funroll-loops -fno-signed-zeros -fno-trapping-math #-D_GLIBCXX_PARALLEL -fgcse-sm -fgcse-las  -flto=$(CPUS)
 LIBS+= -lvtkCommonCore-9.1 -lvtksys-9.1 -lvtkIOXML-9.1 -lvtkCommonDataModel-9.1 -lvtkIOCore-9.1
 #AFLAGS= -fuse-ld=lld 
 else
 #ucrt64
 
-CFLAGS= -I$(IDIR) -I /ucrt64/include/vtk -march=native -malign-double -std=c++2b -fopenmp -fopenmp-simd 
+CFLAGS= -I$(IDIR) -I /ucrt64/include/vtk -march=native -malign-double -std=c++2b -fopenmp -fopenmp-simd -g 
 CFLAGS+= -O3 #-ftree-parallelize-loops 
 CFLAGS+= -mavx -mavx2 -mfma -ftree-vectorize -fno-omit-frame-pointer -finline-functions -funroll-loops -fno-signed-zeros -fno-trapping-math -D_GLIBCXX_PARALLEL
 LIBS+= -lomp -lvtkCommonCore.dll -lvtksys.dll -lvtkIOXML.dll -lvtkCommonDataModel.dll -lvtkIOCore.dll
