@@ -25,7 +25,10 @@
                     "ignoreFailures": true
                 }
             ]
-        }
+         } 
+        
+         ,
+
         {
             "name": "C++ Launch (GDB)",
             "type": "cppdbg",
@@ -46,6 +49,9 @@
             ],
             "preLaunchTask": "make"
         }
+
+        , 
+        
         {
             "name": "WSL(GDB)",
             "type": "cppdbg",
